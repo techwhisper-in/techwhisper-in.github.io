@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-adsense-account" content="ca-pub-4299240496625837">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4299240496625837"
+     crossorigin="anonymous"></script>
+    <title>Blog Post</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Inherit all styles from index.html and add post-specific styles */
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: #f8f9fa;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #0c0d0e 0%, #244f6c 100%);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        /* Google Ad Top */
+        .ad-banner {
+            background: #fff;
+            padding: 10px;
+            text-align: center;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+        .ad-placeholder {
+            width: 728px;
+            height: 90px;
+            background: #e0e0e0;
+            margin: 0 auto;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+        }
+
+        /* Search */
+        .search-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        #searchInput {
+            width: 100%;
+            padding: 12px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 25px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        #searchInput:focus {
+            border-color: #3498db;
+            box-shadow: 0 0 8px rgba(52,152,219,0.2);
+            outline: none;
+        }
+
+        /* Blog Grid */
+        .blog-container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        /* Blog Card */
+        .blog-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 3px solid #3498db;
+        }
+        .blog-content {
+            padding: 20px;
+        }
+        .blog-title {
+            font-size: 1.2rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .blog-date {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        .blog-excerpt {
+            color: #34495e;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 20px;
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: transform 0.2s ease;
+        }
+        .read-more:hover {
+            transform: translateX(5px);
+        }
+
+        
+        .back-to-blog {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .back-to-blog:hover {
+            background-color: #0056b3;
+        }
+        /* Contact Form (Compact) */
+        .contact-section {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+        .contact-form {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .form-title {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #2c3e50;
+        }
+        .form-grid {
+            display: grid;
+            gap: 15px;
+            grid-template-columns: 1fr;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 2px solid #ecf0f1;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        .form-input:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .blog-container {
+                grid-template-columns: 1fr;
+            }
+            .ad-placeholder {
+                width: 100%;
+                height: 100px;
+            }
+        }
+        .post-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .post-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+        .post-title {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        .post-content {
+            line-height: 1.8;
+            color: #34495e;
+            font-size: 1.1rem;
+        }
+        .post-meta {
+            color: #7f8c8d;
+            margin-bottom: 25px;
+        }
+        .in-article-ad {
+            margin: 30px 0;
+            padding: 15px;
+            background: #fff;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" style="color: white; text-decoration: none; position: absolute; left: 20px;">
+            <i class="fas fa-arrow-left"></i> Back
+        </a>
+        <h1>AWS Insights Blog</h1>
+    </header>
+
+    <div class="ad-banner">
+        <div class="ad-placeholder">
+            Google Ad Space (728x90)
+        </div>
+    </div>
+
+    <div class="post-container" id="postContainer">
+        <!-- Post content will be loaded here -->
+    </div>
+
+    <div class="in-article-ad">
+        <div class="ad-placeholder" style="height: 250px;">
+            Google Ad Space (300x250)
+        </div>
+    </div>
+
+    <section class="contact-section">
+        <div class="contact-form">
+            <h2 class="form-title">Contact Us</h2>
+            <form method="post" action="" name="contact-form" id="contactForm">
+                <div class="form-grid">
+                    <input type="text" name="Name" class="form-input" placeholder="Name*" required>
+                    <input type="email" name="Email" class="form-input" placeholder="Email*" required>
+                </div>
+                <input type="number" name="Mobile" class="form-input" placeholder="Mobile">
+                <textarea class="form-input" name="Message" placeholder="Message*" rows="4" required></textarea>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <!-- Same footer as index.html -->
+    </footer>
+
+    <script>
+        // Load Post Content
+        const urlParams = new URLSearchParams(window.location.search);
+        const postId = urlParams.get('id');
+
+        function loadPost() {
+            fetch('data.json')
+                .then(response => response.json())
+                .then(posts => {
+                    const post = posts.find(p => p.id == postId);
+                    const container = document.getElementById('postContainer');
+                    
+                    container.innerHTML = `
+                        <img src="${post.image}" class="post-image" alt="${post.title}">
+                        <h1 class="post-title">${post.title}</h1>
+                        <div class="post-meta">
+                            Published on ${post.date} | 5 min read
+                        </div>
+                        <div class="post-content">
+                            ${post.content}
+                        </div>
+                        <div><a href="index.html" class="back-to-blog">← Back to All Posts</a></div>
+                    `;
+                });
+        }
+        // Form submission
+
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzHrTE9wS_c1vL299NBXselSN2a0iUaXy0yaHeRNI17Cm7AhjhzSehHo7kpuBe39UU6HQ/exec'
+
+        const form = document.forms['contact-form']
+
+        form.addEventListener('submit', e => {
+
+        e.preventDefault()
+
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => alert("Thank you for your message! I will respond shortly." ))
+        .then(() => { window.location.reload(); })
+        .catch(error => console.error('Error!', error.message))
+        })
+        loadPost();
+    </script>
+</body>
+</html>
