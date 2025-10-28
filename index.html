@@ -3,346 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Primary Meta Tags -->
-    <meta name="title" content="AWS Technical Blog | Cloud Computing Tutorials & Best Practices">
-    <meta name="description" content="Expert AWS tutorials, cloud architecture guides, and technical deep dives. Learn AWS services, serverless implementation, and cloud security best practices.">
-    <meta name="keywords" content="AWS, Amazon Web Services, cloud computing, technical blog, AWS tutorials, cloud architecture, serverless, DevOps, cloud security">
-    <meta name="author" content="techwhisper.in">
-    <title>AWS Technical Blog | Cloud Computing Tutorials & Best Practices</title>
-
-    <!-- Open Graph / Facebook (for social sharing) -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://techwhisper.in/">
-    <meta property="og:title" content="AWS Technical Blog | Cloud Computing Tutorials & Best Practices">
-    <meta property="og:description" content="Expert AWS tutorials, cloud architecture guides, and technical deep dives.">
-    <meta property="og:image" content="https://techwhisper.in/blog-preview.png">
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://techwhisper.in/">
-    <meta property="twitter:title" content="AWS Technical Blog | Cloud Computing Tutorials & Best Practices">
-    <meta property="twitter:description" content="Expert AWS tutorials, cloud architecture guides, and technical deep dives.">
-    <meta property="twitter:image" content="https://techwhisper.in/blog-preview.png">
-
-    <!-- Google Adsense -->
-    <meta name="google-adsense-account" content="ca-pub-4299240496625837">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4299240496625837" crossorigin="anonymous"></script>
-    
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <!-- Favicon and App Icons -->
-    <link rel="icon" type="image/x-icon" href="blog.png">
-    
-    <!-- Schema.org markup for Google (structured data) -->
-    <script async src="https://cdn.ampproject.org/v0.js"></script>
-    <script async custom-element="amp-auto-ads"
-        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
-    </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Blog",
-      "name": "AWS Technical Blog",
-      "url": "https://techwhisper.in/",
-      "description": "Expert AWS tutorials, cloud architecture guides, and technical deep dives.",
-      "publisher": {
-        "@type": "Organization",
-        "name": "Techwhisper",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://techwhisper.in/logo.png"
-        }
-      },
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://techwhisper.in/"
-      }
-    }
-    </script>
-    <style>
-        /* Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', sans-serif;
-        }
-
-        body {
-            background: #f8f9fa;
-        }
-
-        /* Header */
-        header {
-            background: linear-gradient(135deg, #0c0d0e 0%, #244f6c 100%);
-            color: white;
-            padding: 1rem;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        /* Google Ad Top */
-        .ad-banner {
-            background: #fff;
-            padding: 10px;
-            text-align: center;
-            margin: 15px 0;
-            border-radius: 8px;
-        }
-        .ad-placeholder {
-            width: 728px;
-            height: 90px;
-            background: #e0e0e0;
-            margin: 0 auto;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #666;
-        }
-
-        /* Search */
-        .search-container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 0 20px;
-        }
-        #searchInput {
-            width: 100%;
-            padding: 12px 20px;
-            border: 2px solid #e0e0e0;
-            border-radius: 25px;
-            font-size: 16px;
-            transition: all 0.3s ease;
-        }
-        #searchInput:focus {
-            border-color: #3498db;
-            box-shadow: 0 0 8px rgba(52,152,219,0.2);
-            outline: none;
-        }
-
-        /* Blog Grid */
-        .blog-container {
-            max-width: 1200px;
-            margin: 30px auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        /* Blog Card */
-        .blog-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-        .blog-card:hover {
-            transform: translateY(-5px);
-        }
-        .blog-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-bottom: 3px solid #3498db;
-        }
-        .blog-content {
-            padding: 20px;
-        }
-        .blog-title {
-            font-size: 1.2rem;
-            color: #2c3e50;
-            margin-bottom: 10px;
-        }
-        .blog-date {
-            color: #7f8c8d;
-            font-size: 0.9rem;
-            margin-bottom: 15px;
-        }
-        .blog-excerpt {
-            color: #34495e;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-        .read-more {
-            display: inline-flex;
-            align-items: center;
-            padding: 8px 20px;
-            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
-            color: white;
-            text-decoration: none;
-            border-radius: 25px;
-            transition: transform 0.2s ease;
-        }
-        .read-more:hover {
-            transform: translateX(5px);
-        }
-
-        /* Contact Form (Compact) */
-        .contact-section {
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 0 20px;
-        }
-        .contact-form {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-        .form-title {
-            text-align: center;
-            margin-bottom: 25px;
-            color: #2c3e50;
-        }
-        .form-grid {
-            display: grid;
-            gap: 15px;
-            grid-template-columns: 1fr;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        .form-input {
-            width: 100%;
-            padding: 10px 15px;
-            border: 2px solid #ecf0f1;
-            border-radius: 8px;
-            font-size: 14px;
-        }
-        .form-input:focus {
-            border-color: #3498db;
-            outline: none;
-        }
-        .submit-btn {
-            width: 100%;
-            padding: 12px;
-            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-        }
-
-        /* Footer */
-        footer {
-            background: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 50px;
-        }
-
-        @media (max-width: 768px) {
-            .blog-container {
-                grid-template-columns: 1fr;
-            }
-            .ad-placeholder {
-                width: 100%;
-                height: 100px;
-            }
-        }
-    </style>
+    <title>DevOps Engineer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <amp-auto-ads type="adsense"
-        data-ad-client="ca-pub-4299240496625837">
-    </amp-auto-ads>
-    <header>
-        <h1>AWS Insights Blog</h1>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-code"></i>
+                <span id="logoName">Logo</span>
+            </div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <div class="ad-banner">
-        <div class="ad-placeholder">
-            Google Ad Space (728x90)
-        </div>
-    </div>
-
-    <div class="search-container">
-        <input type="text" id="searchInput" placeholder="Search articles...">
-    </div>
-
-    <div class="blog-container" id="blogContainer"></div>
-
-    <section class="contact-section">
-        <div class="contact-form">
-            <h2 class="form-title">Contact Us</h2>
-            <form method="post" action="" name="contact-form" id="contactForm">
-                <div class="form-grid">
-                    <input type="text" name="Name" class="form-input" placeholder="Name*" required>
-                    <input type="email" name="Email" class="form-input" placeholder="Email*" required>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="profile-img-container">
+                <img id="profileImage" alt="Profile Image" class="profile-img">
+            </div>
+            <h1 id="heroName"></h1>
+            <h2 id="heroTitle"></h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span id="heroEmail"></span>
                 </div>
-                <input type="number" name="Mobile" class="form-input" placeholder="Mobile">
-                <textarea class="form-input" name="Message" placeholder="Message*" rows="4" required></textarea>
-                <button type="submit" class="submit-btn">Send Message</button>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span id="heroPhone"></span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span id="heroLocation"></span>
+                </div>
+            </div>
+            <div class="social-links" id="socialLinks">
+                <!-- Social links will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="about-text" id="aboutText">
+                    <!-- About text will be populated by JavaScript -->
+                </div>
+                <div class="stats" id="statsContainer">
+                    <!-- Stats will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-center">Technical Skills</h2>
+            <div class="skills-grid" id="skillsGrid">
+                <!-- Skills will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-center">Professional Experience</h2>
+            <div class="timeline" id="experienceTimeline">
+                <!-- Experience items will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="certifications">
+        <div class="container">
+            <h2 class="section-center">Certifications</h2>
+            <div class="cert-grid" id="certGrid">
+                <!-- Certifications will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education">
+        <div class="container">
+            <h2 class="section-center">Education</h2>
+            <div class="edu-grid" id="eduGrid">
+                <!-- Education items will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-center">Get In Touch</h2>
+            <form class="contact-form" method="post" action="" name="contact-form" id="contactForm">
+                <div class="form-group">
+                    <input type="text" name="Name" placeholder="Your Name*" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="Email" placeholder="Your Email*" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" name="Mobile" placeholder="Your Mobile Number">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="Subject" placeholder="Subject*" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="Message" placeholder="Your Message*" required></textarea>
+                </div>
+                <button type="submit" class="btn">Send Message</button>
             </form>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Tech Insight Blog. All rights reserved.</p>
+        <div class="container footer-content">
+            <div class="footer-logo" id="footerName">Ankit Kumar</div>
+            <div class="footer-links">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#experience">Experience</a>
+                <a href="#certifications">Certifications</a>
+                <a href="#education">Education</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="footer-social" id="footerSocialLinks">
+                <!-- Social links will be populated by JavaScript -->
+            </div>
+            <div class="copyright">
+                &copy; <span id="currentYear"></span> Ankit Kumar. All rights reserved.
+            </div>
+        </div>
     </footer>
 
-    <script>
-        // Load Blog Posts
-        function loadBlogPosts(filter = '') {
-            fetch('data.json')
-                .then(response => response.json())
-                .then(data => {
-                    const container = document.getElementById('blogContainer');
-                    container.innerHTML = '';
-                    
-                    const filteredPosts = data.filter(post => 
-                        post.title.toLowerCase().includes(filter.toLowerCase()) ||
-                        post.content.toLowerCase().includes(filter.toLowerCase())
-                    );
-
-                    filteredPosts.forEach(post => {
-                        const blogCard = document.createElement('div');
-                        blogCard.className = 'blog-card';
-                        blogCard.innerHTML = `
-                            <img src="${post.image}" class="blog-image" alt="${post.title}">
-                            <div class="blog-content">
-                                <h2 class="blog-title">${post.title}</h2>
-                                <p class="blog-date">${post.date}</p>
-                                <p class="blog-excerpt">${post.excerpt}</p>
-                                <a href="post.html?id=${post.id}" class="read-more">
-                                    Read More&nbsp; <i class="fas fa-arrow-right"></i>
-                                </a>
-                            </div>
-                        `;
-                        container.appendChild(blogCard);
-                    });
-                });
-        }
-        // Form submission
-
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbzHrTE9wS_c1vL299NBXselSN2a0iUaXy0yaHeRNI17Cm7AhjhzSehHo7kpuBe39UU6HQ/exec'
-
-        const form = document.forms['contact-form']
-
-        form.addEventListener('submit', e => {
-
-        e.preventDefault()
-
-        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-        .then(response => alert("Thank you for your message! I will respond shortly." ))
-        .then(() => { window.location.reload(); })
-        .catch(error => console.error('Error!', error.message))
-        })
-        // Search Functionality
-        document.getElementById('searchInput').addEventListener('input', (e) => {
-            loadBlogPosts(e.target.value);
-        });
-
-        // Initial Load
-        loadBlogPosts();
-    </script>
+    <script src="script.js"></script>
 </body>
-
 </html>
-
