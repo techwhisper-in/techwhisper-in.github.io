@@ -211,7 +211,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             
             // Form submission
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbyLqXCDEehiMXhsWsRwfV0eyoG4_Csvy9VJlx4oWfjDxmBeaP4ZJvxlA-AMxl8e_dKZbw/exec';
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbzVC8R0PBbuvUoffVVKIwKhxLBglYFLdPFScC-NNGQZ4WM2UemjUu44rytcKjWgGItgyQ/exec';
             const form = document.forms['contact-form'];
             form.addEventListener('submit', e => {
                 const formData = {
@@ -228,7 +228,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         mode: "no-cors",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify(formData)})
-                .then(() => {
+                    .then(() => {
                         if (sendingOverlay) sendingOverlay.style.display = 'none';
                         alert("Thank you for your message! I will respond shortly.");
                         form.reset(); // Better UX
