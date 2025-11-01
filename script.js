@@ -212,14 +212,17 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Form submission
             const scriptURL = 'https://script.google.com/macros/s/AKfycbzHrTE9wS_c1vL299NBXselSN2a0iUaXy0yaHeRNI17Cm7AhjhzSehHo7kpuBe39UU6HQ/exec';
-            const form = document.forms['contact-form'];
-            
+            const form = document.forms['contact-form'];            
             form.addEventListener('submit', e => {
-                e.preventDefault();
-                
+                // Show sending overlay
+                if (sendingOverlay) sendingOverlay.style.display = 'block';
+                e.preventDefault();                
                 fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-                .then(response => alert("Thank you for your message! I will respond shortly." ))
-                .then(() => { window.location.reload(); })
+                .then(() => {
+                        if (sendingOverlay) sendingOverlay.style.display = 'none';
+                        alert("Thank you for your message! I will respond shortly.");
+                        form.reset(); // Better UX
+                    })
                 .catch(error => console.error('Error!', error.message));
             });
         })
