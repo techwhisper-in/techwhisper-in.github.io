@@ -211,13 +211,23 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             
             // Form submission
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbzHrTE9wS_c1vL299NBXselSN2a0iUaXy0yaHeRNI17Cm7AhjhzSehHo7kpuBe39UU6HQ/exec';
-            const form = document.forms['contact-form'];            
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbyLqXCDEehiMXhsWsRwfV0eyoG4_Csvy9VJlx4oWfjDxmBeaP4ZJvxlA-AMxl8e_dKZbw/exec';
+            const form = document.forms['contact-form'];
             form.addEventListener('submit', e => {
-                // Show sending overlay
+                const formData = {
+                        Name: form.querySelector('[name="Name"]').value,
+                        Email: form.querySelector('[name="Email"]').value,
+                        Mobile: form.querySelector('[name="Mobile"]').value,
+                        Subject: form.querySelector('[name="Subject"]').value,
+                        Message: form.querySelector('[name="Message"]').value
+                    };
                 if (sendingOverlay) sendingOverlay.style.display = 'block';
                 e.preventDefault();                
-                fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                    fetch(scriptURL, { 
+                        method: 'POST', 
+                        mode: "no-cors",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(formData)})
                 .then(() => {
                         if (sendingOverlay) sendingOverlay.style.display = 'none';
                         alert("Thank you for your message! I will respond shortly.");
