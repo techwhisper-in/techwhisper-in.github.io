@@ -10,22 +10,10 @@
         }
     ],
     "stats": [
-        {
-            "number": "4+",
-            "text": "Years of Experience"
-        },
-        {
-            "number": "40%",
-            "text": "Reduction in Deployment Errors"
-        },
-        {
-            "number": "50+",
-            "text": "Daily Deployments"
-        },
-        {
-            "number": "35%",
-            "text": "Cost Reduction"
-        }
+        { "number": "4+", "text": "Years of Experience" },
+        { "number": "40%", "text": "Reduction in Deployment Errors" },
+        { "number": "50+", "text": "Daily Deployments" },
+        { "number": "35%", "text": "Cost Reduction" }
     ],
     "personal": {
         "name": "Ankit Kumar",
@@ -66,9 +54,21 @@
     "experience": [
         {
             "position": "Devops Engineer II",
-            "company": "United Airlines Business Services Private Limited",
-            "duration": "Aug 2025 - Present",
+            "company": "Unites Airlines",
+            "duration": "2024 - Present",
             "responsibilities": [
+                "Engineered Harness CI/CD pipelines to automate build, test, and deployment processes, reducing deployment errors by 40% and enabling 50+ daily deployments across microservices.",
+                "Integrated JFrog Artifactory with Harness to streamline artifact storage and dependency management, cutting build times by 25%.",
+                "Deployed scalable containerized applications on AWS ECS and EKS, leveraging ECR for secure Docker image management and vulnerability scanning, reducing runtime issues by 30%.",
+                "Migrated legacy EC2 workloads to serverless AWS Lambda functions, lowering infrastructure costs by 35% while improving scalability.",
+                "Automated provisioning of AWS resources (VPCs, EC2, ECS, API Gateway) using Terraform and CloudFormation (CFT), ensuring consistent environments and reducing setup time from days to hours.",
+                "Developed reusable Terraform modules for multi-region EKS clusters, enhancing disaster recovery capabilities.",
+                "Designed RESTful APIs using AWS API Gateway with Lambda integration, implementing rate limiting and OIDC authentication to bolster security and handle 10K+ RPM.",
+                "Orchestrated event-driven serverless workflows (Lambda, SQS, SNS) to process real-time data, reducing latency by 50%.",
+                "Architected VPCs with public/private subnets, NACLs, and VPN peering to meet SOC2 compliance, minimizing attack surface by 60%.",
+                "Automated security group updates and VPC flow log analysis using Python (Boto3), improving incident response time.",
+                "Optimized AWS spending by 20% through right-sizing EC2 instances, implementing auto-scaling policies, and transitioning to Spot Instances for non-critical workloads.",
+                "Reduced ECS task startup time by 45% by fine-tuning Fargate configurations and optimizing Docker images.",
                 "Authored Python scripts to automate log analysis, resource cleanup, and Lambda cold-start mitigation, saving 150+ hours monthly.",
                 "Configured cross-account IAM roles and Kubernetes RBAC for EKS, ensuring least-privilege access across teams.",
                 "Collaborated with development teams to troubleshoot deployment bottlenecks in Harness pipelines, reducing rollbacks by 25%.",
@@ -85,60 +85,27 @@
             ]
         },
         {
-            "position": "Devops Engineer I",
-            "company": "United Airlines Business Services Private Limited",
-            "duration": "Aug 2024 - Aug 2025",
-            "responsibilities": [
-                "Engineered Harness CI/CD pipelines to automate build, test, and deployment processes, reducing deployment errors by 40% and enabling 50+ daily deployments across microservices.",
-                "Integrated JFrog Artifactory with Harness to streamline artifact storage and dependency management, cutting build times by 25%.",
-                "Deployed scalable containerized applications on AWS ECS and EKS, leveraging ECR for secure Docker image management and vulnerability scanning, reducing runtime issues by 30%.",
-                "Migrated legacy EC2 workloads to serverless AWS Lambda functions, lowering infrastructure costs by 35% while improving scalability.",
-                "Automated provisioning of AWS resources (VPCs, EC2, ECS, API Gateway) using Terraform and CloudFormation (CFT), ensuring consistent environments and reducing setup time from days to hours.",
-                "Developed reusable Terraform modules for multi-region EKS clusters, enhancing disaster recovery capabilities.",
-                "Designed RESTful APIs using AWS API Gateway with Lambda integration, implementing rate limiting and OIDC authentication to bolster security and handle 10K+ RPM.",
-                "Orchestrated event-driven serverless workflows (Lambda, SQS, SNS) to process real-time data, reducing latency by 50%.",
-                "Architected VPCs with public/private subnets, NACLs, and VPN peering to meet SOC2 compliance, minimizing attack surface by 60%.",
-                "Automated security group updates and VPC flow log analysis using Python (Boto3), improving incident response time.",
-                "Optimized AWS spending by 20% through right-sizing EC2 instances, implementing auto-scaling policies, and transitioning to Spot Instances for non-critical workloads.",
-                "Reduced ECS task startup time by 45% by fine-tuning Fargate configurations and optimizing Docker images."
-            ]
-        },
-        {
             "position": "AWS Infrastructure Engineer",
             "company": "Accenture India Pvt. Ltd.",
-            "duration": "Dec 2022 - Aug 2024",
+            "duration": "2021 - 2024",
             "responsibilities": [
-                "Managed AMI backups, secure transfers of AMIs between AWS accounts, restoration of AMIs, instance type changes, instance migrations, EBS volume type upgrades, Building gold images/AMIs and employed auto-scaling.",
-                "Built Amazon Virtual Private Cloud (VPC) resources such as subnets, network access control lists, and security groups independently.",
-                "Managed IAM users and groups with advanced configurations.",
-                "Developed Python code to analyze data from monthly Snow tickets, creating reports and reducing project time by 3 days per analysis.",
-                "Composed and demonstrated AWS CloudFormation Templates/Terraform for AWS infrastructure provisioning.",
-                "Architected a solution to take Elasticsearch index snapshots and restore indices using Lambda functions, ensuring proper data backup and restoration.",
-                "Developed a Lambda function that automatically deregisters older AMIs and deletes snapshots based on retention tags and age, reducing operational costs by 15% annually.",
-                "Created a Glue job to fetch details of tags for all AWS resources, aiding in the identification of untagged resources.",
-                "Implemented a serverless infrastructure to identify and delete unattached EBS volumes, reducing operational costs by 10% annually.",
-                "Developed and executed code for automatic alert system in AWS, ensuring timely renewal of API Gateway certificates; reduced risk of service disruption by 100%.",
-                "Developed a Lambda function in Python that automatically starts or stops EC2 instances based on a schedule, decreasing operating expenditure by 15% yearly.",
-                "Designed a solution to receive REST API details and AWS Health Event notifications via email.",
-                "Created a Python script to fetch record details of each DynamoDB table in AWS.",
-                "Automated AWS CloudWatch Log Groups to change their retention policy based on applied tags.",
-                "Performed advanced troubleshooting on Windows hosts and AWS infrastructure.",
-                "Managed AWS administration including monitoring, troubleshooting connections, maintenance, patching, analyzing CloudTrail events, and monitoring IaaS and PaaS services."
-            ]
-        },
-        {
-            "position": "Associate Software Engineer",
-            "company": "Accenture India Pvt. Ltd.",
-            "duration": "Oct 2021 - Dec 2022",
-            "responsibilities": [
-                "Assisted in AMI backups and secure transfers of AMIs between AWS accounts.",
-                "Supported building Amazon Virtual Private Cloud (VPC) resources such as subnets, network access control lists, and security groups.",
-                "Aided in creating IAM users and groups under supervision.",
-                "Learned and implemented Python code to analyze data from monthly Snow tickets, helping create reports.",
-                "Assisted in composing AWS CloudFormation Templates/Terraform for AWS infrastructure provisioning.",
-                "Supported daily troubleshooting on Windows hosts.",
-                "Helped in monitoring, troubleshooting connections, maintenance, patching, and analyzing CloudTrail events.",
-                "Assisted in deploying, testing and documenting development, pre-production, and production environments."
+                "<strong>AMI Management</strong>: Handle AMI backups, secure transfers of AMIs between AWS accounts, restoration of AMIs, instance type changes, instance migrations, EBS volume type upgrades, Building gold images/AMIs and employ auto-scaling.",
+                "<strong>VPC Configuration</strong>: Built Amazon Virtual Private Cloud (VPC) resources such as subnets, network access control lists, and security groups.",
+                "<strong>IAM Management</strong>: Built IAM users and groups.",
+                "<strong>Data Analysis</strong>: Developed Python code to analyze data from monthly Snow tickets, creating reports and reducing project time by 3 days per analysis.",
+                "<strong>Infrastructure as a Code (IAC)</strong>: Compose and demonstrate AWS CloudFormation Templates/Terraform for AWS infrastructure provisioning.",
+                "<strong>Elasticsearch Management</strong>: Architected a solution to take Elasticsearch index snapshots and restore indices using Lambda functions, ensuring proper data backup and restoration.",
+                "<strong>Cost Optimization</strong>: Developed a Lambda function that automatically deregisters older AMIs and deletes snapshots based on retention tags and age, reducing operational costs by 15% annually. Assisted in preparing cost analysis based on encouraged usage. Maintained AWS Cloud Infrastructure in Efficient Configuration from both technical and budgetary perspectives.",
+                "<strong>Resource Tagging</strong>: Created a Glue job to fetch details of tags for all AWS resources, aiding in the identification of untagged resources, Tagging to allocate costs and optimize resource planning.",
+                "<strong>Infrastructure Management</strong>: Implemented a serverless infrastructure to identify and delete unattached EBS volumes, reducing operational costs by 10% annually. Maintained availability of critical AWS Cloud infrastructure to include configuration changes to AWS Cloud Services, made sure to compliance requirements, development/testing/production environments as approved and advised.",
+                "<strong>Certificate Management</strong>: Developed and executed code for automatic alert system in AWS, ensuring timely renewal of API Gateway certificates; reduced risk of service disruption and potential revenue loss due to expired certificates by 100%.",
+                "<strong>Instance Scheduling</strong>: Developed a Lambda function in Python that automatically starts or stops EC2 instances based on a schedule, decreasing operating expenditure by 15% yearly by ensuring instances run only when needed.",
+                "<strong>API Monitoring</strong>: Designed a solution to receive REST API details and AWS Health Event notifications via email.",
+                "<strong>Database Management</strong>: Created a Python script to fetch record details of each DynamoDB table in AWS.",
+                "<strong>Log Management</strong>: Automated AWS CloudWatch Log Groups to change their retention policy based on applied tags.",
+                "<strong>Windows Troubleshooting</strong>: Perform daily troubleshooting on Windows hosts.",
+                "<strong>AWS Administration</strong>: Daily activities include monitoring, troubleshooting connections, maintenance, patching, analyzing CloudTrail events, and monitoring IaaS and PaaS services using AWS's core service CloudWatch and the third-party tool Splunk SignalFx.",
+                "<strong>Documentation</strong>: Deployed, tested and documented development, pre-production, and production environments."
             ]
         }
     ],
