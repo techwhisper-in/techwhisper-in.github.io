@@ -122,6 +122,15 @@ header {
     align-items: center;
 }
 
+.logo a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+
 .logo span {
     color: var(--secondary);
 }

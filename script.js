@@ -181,22 +181,24 @@ document.addEventListener('DOMContentLoaded', function() {
             // Smooth scrolling for navigation links
             document.querySelectorAll('nav a, .footer-links a').forEach(link => {
                 link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
                     const targetId = this.getAttribute('href');
+                    if (!targetId || !targetId.startsWith('#')) {
+                        nav.classList.remove('active')
+                        return; // allow default behavior (PDF download, external links, etc.)
+                    }
+                    e.preventDefault();
                     const targetSection = document.querySelector(targetId);
-                    
+                    if (!targetSection) return; // Safety check
                     window.scrollTo({
                         top: targetSection.offsetTop - 80,
                         behavior: 'smooth'
                     });
-                    
-                    // Close mobile menu if open
                     if (nav.classList.contains('active')) {
                         nav.classList.remove('active');
                     }
                 });
             });
+
             
             // Header scroll effect
             window.addEventListener('scroll', function() {

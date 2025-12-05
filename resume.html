@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ankit Kumar - DevOps Engineer Resume</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #007bff;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --border-color: #333333;
+            --bg-color: #ffffff;
+            --base-font-size: 10pt;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--text-dark);
+            background-color: #f4f4f4;
+            line-height: 1.5;
+            font-size: var(--base-font-size);
+        }
+
+        .page {
+            background: white;
+            width: 210mm;
+            min-height: 297mm;
+            height: 297mm;
+            max-height: 297mm;
+            overflow: hidden;
+            margin: 20px auto;
+            padding: 15mm 20mm;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        /* Layout Grid */
+        .container {
+            display: grid;
+            grid-template-columns: 65% 30%;
+            gap: 5%;
+            height: 100%;
+        }
+
+        /* Header Section */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .header-left h1 {
+            font-size: calc(var(--base-font-size) * 2.8);
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 2px;
+        }
+
+        .header-left h2 {
+            font-size: calc(var(--base-font-size) * 1.4);
+            color: var(--primary-blue);
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: calc(var(--base-font-size) * 0.9);
+            color: var(--text-light);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .contact-item i {
+            color: var(--primary-blue);
+            font-size: calc(var(--base-font-size) * 1);
+        }
+
+        .contact-item a {
+            color: var(--text-light);
+            text-decoration: none;
+        }
+
+        /* Avatar Circle */
+        .avatar {
+            width: 90px;
+            height: 90px;
+            background-color: var(--primary-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: calc(var(--base-font-size) * 2.4);
+            font-weight: bold;
+        }
+
+        /* Section Styling */
+        .section-title {
+            font-size: calc(var(--base-font-size) * 1.2);
+            font-weight: 700;
+            text-transform: uppercase;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 4px;
+            margin-bottom: 12px;
+            margin-top: 5px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Left Column Styles (Experience) */
+        .job-entry {
+            margin-bottom: 18px;
+        }
+
+        .job-role {
+            font-size: calc(var(--base-font-size) * 1.1);
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+
+        .company-name {
+            color: var(--primary-blue);
+            font-weight: 500;
+            font-size: calc(var(--base-font-size) * 1.1);
+            margin-bottom: 2px;
+        }
+
+        .job-meta {
+            display: flex;
+            gap: 12px;
+            font-size: calc(var(--base-font-size) * 0.85);
+            color: var(--text-light);
+            margin-bottom: 4px;
+        }
+
+        .job-meta i {
+            margin-right: 4px;
+        }
+
+        .company-desc {
+            font-size: calc(var(--base-font-size) * 0.85);
+            color: var(--text-light);
+            margin-bottom: 6px;
+            font-style: italic;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 15px;
+        }
+
+        li {
+            font-size: calc(var(--base-font-size) * 0.95);
+            margin-bottom: 3px;
+            color: #444;
+        }
+
+        /* Right Column Styles */
+        .summary-text {
+            font-size: calc(var(--base-font-size) * 0.95);
+            color: #444;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .cert-item, .edu-item, .skill-category {
+            margin-bottom: 10px;
+        }
+
+        .cert-item strong, .edu-item strong {
+            display: block;
+            font-size: calc(var(--base-font-size) * 1);
+            color: #222;
+        }
+
+        .cert-item span, .edu-item span {
+            font-size: calc(var(--base-font-size) * 0.9);
+            color: var(--text-light);
+        }
+
+        .skill-category strong {
+            display: block;
+            font-size: calc(var(--base-font-size) * 1);
+            margin-bottom: 2px;
+            color: var(--primary-blue);
+        }
+
+        .skill-list {
+            font-size: calc(var(--base-font-size) * 0.9);
+            color: #444;
+            line-height: 1.4;
+        }
+
+        .achievement-item {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .achievement-item i {
+            color: var(--primary-blue);
+            margin-top: 3px;
+        }
+
+        .achievement-text {
+            font-size: calc(var(--base-font-size) * 0.95);
+            color: #444;
+        }
+
+        .achievement-title {
+            font-weight: 700;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        /* Adjustable content area */
+        .content-wrapper {
+            height: calc(100% - 120px);
+            overflow: hidden;
+        }
+
+        /* Print Optimization */
+        @media print {
+            body {
+                background-color: white;
+            }
+            .page {
+                box-shadow: none;
+                margin: 0;
+                padding: 15mm 20mm;
+                width: 100%;
+            }
+            @page {
+                margin: 0;
+                size: A4;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page" id="resumePage">
+    <!-- Header -->
+    <header>
+        <div class="header-left">
+            <h1>Ankit Kumar</h1>
+            <h2>DevOps Engineer II</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>+91 9631127486</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:ankitkr.techie@gmail.com">ankitkr.techie@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-link"></i>
+                    <a href="https://resume.techwhisper.in" target="_blank">resume.techwhisper.in</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Gurgaon, India</span>
+                </div>
+            </div>
+        </div>
+        <div class="avatar">AK</div>
+    </header>
+
+    <div class="container content-wrapper">
+        <!-- Left Column: Experience -->
+        <div class="left-column">
+            <h3 class="section-title">Experience</h3>
+
+            <!-- Job 1 -->
+            <div class="job-entry">
+                <div class="job-role">DevOps Engineer II</div>
+                <div class="company-name">United Airlines Business Services Pvt. Ltd.</div>
+                <div class="job-meta">
+                    <span><i class="far fa-calendar-alt"></i> Aug 2025 – Present</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Gurgaon, India</span>
+                </div>
+                <ul>
+                    <li>Led the end-to-end migration of 150+ CI/CD pipelines from TeamCity to Harness, reducing configuration complexity by 60% through YAML-as-code standardization.</li>
+                    <li>Reduced annual tooling costs by $150K+ and cloud monitoring costs by 25% by consolidating TeamCity/DataDog into Harness/Dynatrace.</li>
+                    <li>Replaced DataDog with Dynatrace across 50+ microservices, improving Mean Time To Detect (MTTD) by 40% via automated root-cause analysis.</li>
+                    <li>Migrated 300+ repositories from GitHub Enterprise (On-Prem) to GitHub Cloud, enforcing SAML SSO and automated secret scanning for SOC2 compliance.</li>
+                </ul>
+            </div>
+
+            <!-- Job 2 -->
+            <div class="job-entry">
+                <div class="job-role">DevOps Engineer I</div>
+                <div class="company-name">United Airlines Business Services Pvt. Ltd.</div>
+                <div class="job-meta">
+                    <span><i class="far fa-calendar-alt"></i> Aug 2024 – Aug 2025</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Gurgaon, India</span>
+                </div>
+                <ul>
+                    <li>Engineered Harness pipelines to support 50+ daily deployments, reducing deployment errors by 40% and integrating JFrog for artifact management.</li>
+                    <li>Automated provisioning of AWS resources (VPCs, EKS, API Gateway) using Terraform modules, reducing environment setup time from days to hours.</li>
+                    <li>Migrated legacy EC2 workloads to AWS Lambda, achieving a 35% reduction in infrastructure costs while improving scalability.</li>
+                    <li>Designed SOC2-compliant VPC architectures and automated security group updates using Python/Boto3, minimizing the attack surface by 60%.</li>
+                </ul>
+            </div>
+
+            <!-- Job 3 -->
+            <div class="job-entry">
+                <div class="job-role">AWS Infrastructure Engineer</div>
+                <div class="company-name">Accenture India Pvt. Ltd.</div>
+                <div class="job-meta">
+                    <span><i class="far fa-calendar-alt"></i> Dec 2022 – Aug 2024</span>
+                    <span><i class="fas fa-map-marker-alt"></i>Noida, India</span>
+                </div>
+                <ul>
+                    <li>Developed Python Lambda functions to automatically deregister old AMIs and delete snapshots, reducing storage costs by 15% annually.</li>
+                    <li>Automated "Snow" ticket data analysis using Python scripts, reducing monthly reporting time by 3 days.</li>
+                    <li>Architected serverless solutions for Elasticsearch index snapshots and restoration to ensure business continuity.</li>
+                    <li>Managed complex IAM roles, policies, and cross-account access for enterprise-scale AWS environments.</li>
+                </ul>
+            </div>
+
+             <!-- Job 4 -->
+             <div class="job-entry">
+                <div class="job-role">Associate Software Engineer</div>
+                <div class="company-name">Accenture India Pvt. Ltd.</div>
+                <div class="job-meta">
+                    <span><i class="far fa-calendar-alt"></i> Oct 2021 – Dec 2022</span>
+                    <span><i class="fas fa-map-marker-alt"></i>Noida, India</span>
+                </div>
+                <ul>
+                    <li>Assisted in the management of AWS VPC resources (Subnets, NACLs, Security Groups) and AMI backups.</li>
+                    <li>Supported production environments through daily troubleshooting, patching, and CloudTrail event analysis.</li>
+                </ul>
+            </div>
+            <h3 class="section-title">Education</h3>
+            <div class="edu-item">
+                <strong>Bachelor of Technology</strong>
+                <span>BCE, Patna (2017 – 2021)</span>
+            </div>
+        </div>
+
+        <!-- Right Column: Sidebar -->
+        <div class="right-column">
+            
+            <!-- Summary -->
+            <h3 class="section-title">Summary</h3>
+            <div class="summary-text">
+                DevOps Engineer with 4+ years of experience designing secure, scalable AWS infrastructures. Expert in migrating legacy systems (TeamCity to Harness, DataDog to Dynatrace), automating workflows with Python/Boto3, and implementing Infrastructure as Code (Terraform). Proven track record of reducing cloud costs by 35% and accelerating deployment frequency to 50+ times daily while ensuring SOC2 compliance.
+            </div>
+
+            <!-- Key Achievements -->
+            <h3 class="section-title">Key Achievements</h3>
+            <div class="achievement-item">
+                <i class="fas fa-magic"></i>
+                <div class="achievement-text">
+                    <span class="achievement-title">Cost & Efficiency</span>
+                    Reduced cloud costs by 35% and tooling costs by $150K+ via tool consolidation.
+                </div>
+            </div>
+            <div class="achievement-item">
+                <i class="fas fa-rocket"></i>
+                <div class="achievement-text">
+                    <span class="achievement-title">Deployment Velocity</span>
+                    Accelerated deployment frequency to 50+ times daily with automated rollbacks.
+                </div>
+            </div>
+
+            <!-- Certifications -->
+            <h3 class="section-title">Certification</h3>
+            <div class="cert-item">
+                <strong>HashiCorp Certified:</strong>
+                <span>Terraform Associate (003)</span>
+            </div>
+            <div class="cert-item">
+                <strong>AWS Certified:</strong>
+                <span>Solutions Architect – Associate | Developer – Associate</span>
+            </div>
+            <div class="cert-item">
+                <strong>Microsoft Certified:</strong>
+                <span>Azure Administrator Associate (AZ-104) | Azure Fundamentals (AZ-900)</span>
+            </div>
+
+            <!-- Technical Skills -->
+            <h3 class="section-title">Skills</h3>
+            <div class="skill-category">
+                <strong>Cloud Platforms</strong>
+                <div class="skill-list">AWS (EKS, ECS, Lambda, API Gateway, VPC, EC2, CloudFormation), Azure</div>
+            </div>
+            <div class="skill-category">
+                <strong>DevOps & IaC</strong>
+                <div class="skill-list">Terraform, Harness, GitHub Actions, Docker, Kubernetes</div>
+            </div>
+            <div class="skill-category">
+                <strong>Programming</strong>
+                <div class="skill-list">Python (Boto3), Bash</div>
+            </div>
+            <div class="skill-category">
+                <strong>Observability</strong>
+                <div class="skill-list">Dynatrace, SignalFX, DataDog, Amazon CloudWatch</div>
+            </div>
+            <div class="skill-category">
+                <strong>Tools</strong>
+                <div class="skill-list">GitHub, JFrog Artifactory, Jira, Confluence</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Auto-resize font to fit A4 page
+    function autoResizeFont() {
+        const page = document.getElementById('resumePage');
+        const minFontSize = 8; // Minimum font size in pt
+        const maxFontSize = 12; // Maximum font size in pt
+        const targetHeight = 297; // A4 height in mm
+        const tolerance = 1; // 1mm tolerance
+        
+        // Function to check if content fits
+        function fits() {
+            const pageHeight = page.getBoundingClientRect().height;
+            const pageStyle = window.getComputedStyle(page);
+            const pageHeightMM = parseFloat(pageStyle.height);
+            return pageHeightMM <= targetHeight + tolerance;
+        }
+        
+        // Binary search for optimal font size
+        let low = minFontSize;
+        let high = maxFontSize;
+        let optimalSize = minFontSize;
+        
+        // Try current size first
+        if (fits()) {
+            // If it fits at max size, use it
+            document.documentElement.style.setProperty('--base-font-size', maxFontSize + 'pt');
+            return;
+        }
+        
+        // Binary search for optimal size
+        for (let i = 0; i < 10; i++) {
+            const mid = (low + high) / 2;
+            document.documentElement.style.setProperty('--base-font-size', mid + 'pt');
+            
+            // Force reflow
+            void page.offsetHeight;
+            
+            if (fits()) {
+                optimalSize = mid;
+                low = mid;
+            } else {
+                high = mid;
+            }
+        }
+        
+        // Set the optimal font size
+        document.documentElement.style.setProperty('--base-font-size', optimalSize + 'pt');
+    }
+    
+    // Run on initial load
+    document.addEventListener('DOMContentLoaded', autoResizeFont);
+    
+    // Run when content changes (using MutationObserver)
+    const observer = new MutationObserver(autoResizeFont);
+    observer.observe(document.getElementById('resumePage'), {
+        childList: true,
+        subtree: true,
+        characterData: true
+    });
+    
+    // Also run on window resize (for print preview, etc.)
+    window.addEventListener('resize', autoResizeFont);
+    
+    // Add manual trigger for content editing
+    window.adjustResumeFont = autoResizeFont;
+    
+    // Initialize
+    setTimeout(autoResizeFont, 100);
+</script>
+
+</body>
+</html>
