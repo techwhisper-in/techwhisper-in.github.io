@@ -1,245 +1,228 @@
-// Function to populate the portfolio
+// Function to populate the portfolio with Modern UI
 function populatePortfolio(portfolioData) {
-    // Personal Information
-    // Set page title using existing data
-    document.title = `${portfolioData.personal.name} - ${portfolioData.personal.title} Portfolio`;
-    document.getElementById('logoName').textContent = portfolioData.personal.name;
+    // --- Personal Information ---
+    document.title = `${portfolioData.personal.name} | ${portfolioData.personal.title}`;
+    
+    // Logo and Hero Text
+    document.getElementById('logoName').textContent = portfolioData.personal.name.replace(" ", "");
     document.getElementById('heroName').textContent = portfolioData.personal.name;
     document.getElementById('heroTitle').textContent = portfolioData.personal.title;
-    //document.getElementById('heroEmail').textContent = portfolioData.personal.email;
-    // Contact Information with clickable links
-    const heroEmail = document.getElementById('heroEmail');
-    heroEmail.innerHTML = `<a href="mailto:${portfolioData.personal.email}" class="email-link">${portfolioData.personal.email}</a>`;
-    const phoneNumber = portfolioData.personal.phone.replace(/[\s\-()]/g, '');
-    heroPhone.innerHTML = `<a href="tel:${phoneNumber}" class="phone-link">${portfolioData.personal.phone}</a>`;
-    document.getElementById('heroLocation').textContent = portfolioData.personal.location;
     document.getElementById('profileImage').src = portfolioData.personal.profileImage;
-    document.getElementById('aboutText').innerHTML = portfolioData.personal.about;
     document.getElementById('footerName').textContent = portfolioData.personal.name;
-
-    // Set current year in footer
     document.getElementById('currentYear').textContent = new Date().getFullYear();
+    document.getElementById('aboutText').innerHTML = portfolioData.personal.about;
 
-    // Social Links
-    const socialLinksContainer = document.getElementById('socialLinks');
-    const footerSocialLinksContainer = document.getElementById('footerSocialLinks');
+    // Contact Info (Hero)
+    const contactContainer = document.getElementById('contactInfo');
+    const emailHtml = `<a href="mailto:${portfolioData.personal.email}" class="flex items-center hover:text-primary transition-colors"><i class="fas fa-envelope mr-2"></i> ${portfolioData.personal.email}</a>`;
+    const locationHtml = `<span class="flex items-center"><i class="fas fa-map-marker-alt mr-2"></i> ${portfolioData.personal.location}</span>`;
+    // Format phone
+    const phoneClean = portfolioData.personal.phone.replace(/[\s\-()]/g, '');
+    const phoneHtml = `<a href="tel:${phoneClean}" class="flex items-center hover:text-primary transition-colors"><i class="fas fa-phone mr-2"></i> ${portfolioData.personal.phone}</a>`;
+    
+    contactContainer.innerHTML = `${emailHtml} ${phoneHtml} ${locationHtml}`;
+
+    // --- Social Links ---
+    const heroSocial = document.getElementById('heroSocialLinks');
+    const footerSocial = document.getElementById('footerSocialLinks');
     
     portfolioData.social.forEach(social => {
+        // Hero Socials
         const link = document.createElement('a');
         link.href = social.url;
         link.target = "_blank";
+        link.className = "text-slate-400 hover:text-white text-2xl transition-transform hover:-translate-y-1";
         link.innerHTML = `<i class="${social.icon}"></i>`;
-        socialLinksContainer.appendChild(link);
+        heroSocial.appendChild(link);
         
-        const footerLink = document.createElement('a');
-        footerLink.href = social.url;
-        footerLink.target = "_blank";
-        footerLink.innerHTML = `<i class="${social.icon}"></i>`;
-        footerSocialLinksContainer.appendChild(footerLink);
+        // Footer Socials
+        const fLink = link.cloneNode(true);
+        fLink.className = "w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-primary hover:text-dark transition-all";
+        footerSocial.appendChild(fLink);
     });
 
-    // Stats   
+    // --- Stats ---
     const statsContainer = document.getElementById('statsContainer');
     portfolioData.stats.forEach(stat => {
-        const statItem = document.createElement('div');
-        statItem.className = 'stat-item';
-        
-        const statNumber = document.createElement('span');
-        statNumber.className = 'stat-number';
-        statNumber.textContent = stat.number;
-        
-        const statText = document.createElement('span');
-        statText.className = 'stat-text';
-        statText.textContent = stat.text;
-        
-        statItem.appendChild(statNumber);
-        statItem.appendChild(statText);
-        
-        statsContainer.appendChild(statItem);
+        const div = document.createElement('div');
+        div.className = "text-center";
+        div.innerHTML = `
+            <div class="text-4xl font-bold text-white mb-1">${stat.number}</div>
+            <div class="text-sm text-slate-400 uppercase tracking-wider font-mono">${stat.text}</div>
+        `;
+        statsContainer.appendChild(div);
     });
 
-    // Skills
+    // --- Skills ---
     const skillsGrid = document.getElementById('skillsGrid');
     portfolioData.skills.forEach(skill => {
-        const skillItem = document.createElement('div');
-        skillItem.className = 'skill-item';
-        skillItem.textContent = skill;
-        skillsGrid.appendChild(skillItem);
+        const span = document.createElement('span');
+        // Modern Pill Design
+        span.className = "px-4 py-2 bg-slate-800/50 hover:bg-slate-700 border border-slate-700 hover:border-primary rounded-lg text-slate-300 text-sm transition-all cursor-default select-none";
+        span.textContent = skill;
+        skillsGrid.appendChild(span);
     });
 
-    // Experience
+    // --- Experience (Vertical Timeline) ---
     const experienceTimeline = document.getElementById('experienceTimeline');
-    portfolioData.experience.forEach(exp => {
-        const timelineItem = document.createElement('div');
-        timelineItem.className = 'timeline-item';
+    portfolioData.experience.forEach((exp, index) => {
+        const item = document.createElement('div');
+        item.className = "relative pl-8 md:pl-12 pb-12 group"; // Vertical spacing
         
-        const duration = document.createElement('div');
-        duration.className = 'timeline-date';
-        duration.textContent = exp.duration;
+        // Timeline Dot
+        const dot = document.createElement('div');
+        dot.className = "absolute -left-[9px] top-0 w-5 h-5 rounded-full border-4 border-dark bg-slate-600 group-hover:bg-primary transition-colors timeline-dot";
+        item.appendChild(dot);
+
+        // Content Card
+        const card = document.createElement('div');
+        card.className = "glass-card p-6 rounded-xl relative";
         
-        const content = document.createElement('div');
-        content.className = 'timeline-content';
-        
-        const position = document.createElement('h3');
-        position.textContent = exp.position;
-        
-        const company = document.createElement('h4');
-        company.textContent = exp.company;
-        
-        const responsibilities = document.createElement('ul');
-        responsibilities.className = 'responsibilities';
-        
+        // Header
+        const header = document.createElement('div');
+        header.className = "flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4";
+        header.innerHTML = `
+            <div>
+                <h3 class="text-xl font-bold text-white">${exp.position}</h3>
+                <p class="text-primary font-medium">${exp.company}</p>
+            </div>
+            <span class="mt-2 sm:mt-0 text-xs font-mono text-slate-400 bg-slate-800 px-3 py-1 rounded-full border border-slate-700">
+                ${exp.duration}
+            </span>
+        `;
+        card.appendChild(header);
+
+        // Responsibilities
+        const ul = document.createElement('ul');
+        ul.className = "space-y-2 text-slate-400 text-sm list-disc list-inside marker:text-slate-600";
         exp.responsibilities.forEach(resp => {
             const li = document.createElement('li');
             li.innerHTML = resp;
-            responsibilities.appendChild(li);
+            ul.appendChild(li);
         });
-        
-        content.appendChild(position);
-        content.appendChild(company);
-        content.appendChild(responsibilities);
-        
-        timelineItem.appendChild(duration);
-        timelineItem.appendChild(content);
-        
-        experienceTimeline.appendChild(timelineItem);
+        card.appendChild(ul);
+
+        item.appendChild(card);
+        experienceTimeline.appendChild(item);
     });
 
-    // Certifications
-    const certGrid = document.getElementById('certGrid');
-    portfolioData.certification.forEach(cert => {
-        const certItem = document.createElement('div');
-        certItem.className = 'cert-item';
-        
-        const icon = document.createElement('div');
-        icon.className = 'cert-icon';
-        icon.innerHTML = '<i class="fas fa-award"></i>';
-        
-        const name = document.createElement('h3');
-        name.textContent = cert.name;
-        
-        const institution = document.createElement('p');
-        institution.textContent = cert.institution;
-        
-        certItem.appendChild(icon);
-        certItem.appendChild(name);
-        certItem.appendChild(institution);
-        
-        certGrid.appendChild(certItem);
-    });
-
-    // Education
+    // --- Education ---
     const eduGrid = document.getElementById('eduGrid');
     portfolioData.education.forEach(edu => {
-        const eduItem = document.createElement('div');
-        eduItem.className = 'edu-item';
-        
-        const icon = document.createElement('div');
-        icon.className = 'edu-icon';
-        icon.innerHTML = '<i class="fas fa-graduation-cap"></i>';
-        
-        const degree = document.createElement('h3');
-        degree.textContent = edu.degree;
-        
-        const institution = document.createElement('p');
-        institution.textContent = edu.institution;
-        
-        const duration = document.createElement('p');
-        duration.textContent = edu.duration;
-        
-        eduItem.appendChild(icon);
-        eduItem.appendChild(degree);
-        eduItem.appendChild(institution);
-        eduItem.appendChild(duration);
-        
-        eduGrid.appendChild(eduItem);
+        const div = document.createElement('div');
+        div.className = "glass-card p-6 rounded-xl border-l-4 border-primary";
+        div.innerHTML = `
+            <h3 class="text-lg font-bold text-white">${edu.degree}</h3>
+            <p class="text-slate-400">${edu.institution}</p>
+            <p class="text-xs text-slate-500 font-mono mt-2">${edu.duration}</p>
+        `;
+        eduGrid.appendChild(div);
+    });
+
+    // --- Certifications ---
+    const certGrid = document.getElementById('certGrid');
+    portfolioData.certification.forEach(cert => {
+        const div = document.createElement('div');
+        div.className = "glass-card p-6 rounded-xl flex items-start gap-4";
+        div.innerHTML = `
+            <div class="mt-1 text-secondary"><i class="fas fa-certificate text-xl"></i></div>
+            <div>
+                <h3 class="text-white font-medium leading-tight">${cert.name}</h3>
+                <p class="text-sm text-slate-500 mt-1">${cert.institution}</p>
+            </div>
+        `;
+        certGrid.appendChild(div);
     });
 }
 
-// Initialize the portfolio when the page loads
+// --- Main Initialization ---
 document.addEventListener('DOMContentLoaded', function() {
-    // Fetch the JSON data
+    // 1. Fetch Data
     const json_version = new Date().getTime();
     fetch('data.json?v=' + json_version)
         .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
+            if (!response.ok) throw new Error('Network response was not ok');
             return response.json();
         })
         .then(portfolioData => {
             populatePortfolio(portfolioData);
-            
-            // Mobile menu toggle
-            const mobileMenu = document.querySelector('.mobile-menu');
-            const nav = document.querySelector('nav');
-            
-            mobileMenu.addEventListener('click', function() {
-                nav.classList.toggle('active');
-            });
-            
-            // Smooth scrolling for navigation links
-            document.querySelectorAll('nav a, .footer-links a').forEach(link => {
-                link.addEventListener('click', function(e) {
-                    const targetId = this.getAttribute('href');
-                    if (!targetId || !targetId.startsWith('#')) {
-                        nav.classList.remove('active')
-                        return; // allow default behavior (PDF download, external links, etc.)
-                    }
-                    e.preventDefault();
-                    const targetSection = document.querySelector(targetId);
-                    if (!targetSection) return; // Safety check
-                    window.scrollTo({
-                        top: targetSection.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    if (nav.classList.contains('active')) {
-                        nav.classList.remove('active');
-                    }
-                });
-            });
-
-            
-            // Header scroll effect
-            window.addEventListener('scroll', function() {
-                const header = document.getElementById('header');
-                if (window.scrollY > 100) {
-                    header.style.padding = '10px 0';
-                    header.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
-                } else {
-                    header.style.padding = '20px 0';
-                    header.style.boxShadow = '0 2px 5px rgba(0, 0, 0, 0.1)';
-                }
-            });
-            
-            // Form submission
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbzVC8R0PBbuvUoffVVKIwKhxLBglYFLdPFScC-NNGQZ4WM2UemjUu44rytcKjWgGItgyQ/exec';
-            const form = document.forms['contact-form'];
-            form.addEventListener('submit', e => {
-                const formData = {
-                        Name: form.querySelector('[name="Name"]').value,
-                        Email: form.querySelector('[name="Email"]').value,
-                        Mobile: form.querySelector('[name="Mobile"]').value,
-                        Subject: form.querySelector('[name="Subject"]').value,
-                        Message: form.querySelector('[name="Message"]').value
-                    };
-                if (sendingOverlay) sendingOverlay.style.display = 'block';
-                e.preventDefault();                
-                    fetch(scriptURL, { 
-                        method: 'POST', 
-                        mode: "no-cors",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify(formData)})
-                    .then(() => {
-                        if (sendingOverlay) sendingOverlay.style.display = 'none';
-                        alert("Thank you for your message! I will respond shortly.");
-                        form.reset(); // Better UX
-                    })
-                .catch(error => console.error('Error!', error.message));
-            });
+            initUIInteractions();
         })
         .catch(error => {
             console.error('Error loading portfolio data:', error);
-            document.body.innerHTML = `<div style="text-align: center; padding: 50px; color: red;">Error loading portfolio data. Please check your internet connection and try again.</div>`;
+            document.body.innerHTML = `<div class="text-center p-10 text-red-500 bg-dark h-screen flex items-center justify-center">Failed to load portfolio data.</div>`;
         });
 });
+
+// --- UI Interactions ---
+function initUIInteractions() {
+    // 1. Navbar Scroll Effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('nav-scrolled');
+        } else {
+            navbar.classList.remove('nav-scrolled');
+        }
+    });
+
+    // 2. Mobile Menu Logic
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    // Toggle menu open/close when clicking the hamburger button
+    mobileBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    // NEW: Close menu when clicking ANY link inside the mobile menu
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+    });
+
+    // 3. Contact Form Logic
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzVC8R0PBbuvUoffVVKIwKhxLBglYFLdPFScC-NNGQZ4WM2UemjUu44rytcKjWgGItgyQ/exec';
+    const form = document.forms['contact-form'];
+    const overlay = document.getElementById('sendingOverlay');
+
+    if(form) {
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            if(overlay) {
+                overlay.classList.remove('hidden');
+                overlay.classList.add('flex');
+            }
+
+            const formData = {
+                Name: form.querySelector('[name="Name"]').value,
+                Email: form.querySelector('[name="Email"]').value,
+                Mobile: form.querySelector('[name="Mobile"]').value,
+                Subject: form.querySelector('[name="Subject"]').value,
+                Message: form.querySelector('[name="Message"]').value
+            };
+
+            fetch(scriptURL, { 
+                method: 'POST', 
+                mode: "no-cors",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData)
+            })
+            .then(() => {
+                if(overlay) {
+                    overlay.classList.add('hidden');
+                    overlay.classList.remove('flex');
+                }
+                alert("Message Sent! I'll get back to you shortly.");
+                form.reset();
+            })
+            .catch(error => {
+                console.error('Error!', error.message);
+                if(overlay) overlay.classList.add('hidden');
+                alert("Error sending message. Please try again.");
+            });
+        });
+    }
+}

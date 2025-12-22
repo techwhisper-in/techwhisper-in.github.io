@@ -1,183 +1,204 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevOps Engineer</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <title>Loading...</title>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"> -->
+    <link rel="stylesheet" href="assets/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <!-- <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#0f172a',
+                        card: '#1e293b',
+                        primary: '#38bdf8', // Sky blue
+                        secondary: '#818cf8', // Indigo
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script> -->
 </head>
-<body>
-    <!-- Header -->
-    <header id="header">
-        <div class="container header-container">
-            <div class="logo">
-                <a href="./resume.html" target="_blank" rel="noopener noreferrer">
-                    <i class="fas fa-code"></i>
-                    <span id="logoName">Logo</span>
+<body class="bg-dark text-slate-300 antialiased selection:bg-primary selection:text-dark">
+
+    <div class="fixed top-0 left-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 pointer-events-none z-0"></div>
+    <div class="fixed bottom-0 right-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2 pointer-events-none z-0"></div>
+
+    <nav class="fixed w-full z-50 transition-all duration-300 border-b border-transparent" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- <div class="flex-shrink-0 font-bold text-2xl tracking-tighter cursor-pointer">
+                    <span class="text-primary">&lt;</span><span class="text-white" id="logoName">Loading...</span><span class="text-primary">/&gt;</span>
+                </div> -->
+                <a href="./resume.html" target="_blank" class="flex-shrink-0 font-bold text-2xl tracking-tighter cursor-pointer">
+                    <span class="text-primary">&lt;</span>
+                    <span class="text-white" id="logoName">Loading...</span>
+                    <span class="text-primary">/&gt;</span>
                 </a>
-            </div>
-            <div class="mobile-menu">
-                <i class="fas fa-bars"></i>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="./Ankit_Kumar_DevOps_Engineer.pdf" target="_blank" rel="noopener noreferrer">Download Resume</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#certifications">Certifications</a></li>
-                    <li><a href="#education">Education</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+                
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#about" class="nav-link">About</a>
+                        <a href="#skills" class="nav-link">Skills</a>
+                        <a href="#experience" class="nav-link">Experience</a>
+                        <!-- <a href="#projects" class="nav-link">Projects</a> -->
+                        <a href="./Ankit_Kumar_DevOps_Engineer.pdf" target="_blank" class="px-4 py-2 border border-slate-600 rounded-lg hover:border-primary hover:text-white transition-all text-sm">Resume</a>
+                    </div>
+                </div>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container hero-content">
-            <div class="profile-img-container">
-                <img id="profileImage" alt="Profile Image" class="profile-img">
-            </div>
-            <h1 id="heroName"></h1>
-            <h2 id="heroTitle"></h2>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <span id="heroEmail"></span>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <span id="heroPhone"></span>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span id="heroLocation"></span>
-                </div>
-            </div>
-            <div class="social-links" id="socialLinks">
-                <!-- Social links will be populated by JavaScript -->
-            </div>
-        </div>
-    </section>
-    <div id="sendingOverlay" style="
-        display:none;
-        position:fixed;
-        top:0; left:0;
-        width:100%; height:100%;
-        background:rgba(0,0,0,0.6);
-        z-index:9999;
-        color:#fff;
-        font-size:22px;
-        text-align:center;
-        padding-top:20%;
-        ">
-        Sending your message, please wait...
-    </div>
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2>About Me</h2>
-            <div class="about-content">
-                <div class="about-text" id="aboutText">
-                    <!-- About text will be populated by JavaScript -->
-                </div>
-                <div class="stats" id="statsContainer">
-                    <!-- Stats will be populated by JavaScript -->
+                <div class="md:hidden">
+                    <button id="mobileMenuBtn" class="text-white hover:text-primary focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <h2 class="section-center">Technical Skills</h2>
-            <div class="skills-grid" id="skillsGrid">
-                <!-- Skills will be populated by JavaScript -->
+        
+        <div id="mobileMenu" class="hidden md:hidden bg-card/95 backdrop-blur-xl border-b border-white/10">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium hover:text-white hover:bg-slate-700">About</a>
+                <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium hover:text-white hover:bg-slate-700">Skills</a>
+                <a href="#experience" class="block px-3 py-2 rounded-md text-base font-medium hover:text-white hover:bg-slate-700">Experience</a>
+                <a href="./Ankit_Kumar_DevOps_Engineer.pdf" target="_blank" class="block px-3 py-2 text-primary font-bold">Download Resume</a>
             </div>
+        </div>
+    </nav>
+
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col-reverse lg:flex-row items-center gap-12 z-10">
+        <div class="flex-1 text-center lg:text-left">
+            <div class="inline-block px-3 py-1 mb-6 text-xs font-mono text-primary bg-primary/10 rounded-full border border-primary/20">
+                <span class="animate-pulse">●</span> Available for hire
+            </div>
+            <h1 class="text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+                Hi, I'm <span id="heroName" class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary"></span>
+            </h1>
+            <h2 id="heroTitle" class="text-2xl lg:text-3xl text-slate-400 mb-8 font-light"></h2>
+            
+            <div class="flex flex-wrap justify-center lg:justify-start gap-4 text-slate-400 mb-10" id="contactInfo">
+                </div>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <a href="#contact" class="px-8 py-3 bg-primary text-dark font-bold rounded-lg hover:bg-sky-400 transition-all shadow-[0_0_20px_rgba(56,189,248,0.3)]">
+                    Contact Me
+                </a>
+                <!-- <div class="flex items-center gap-4 px-6" id="heroSocialLinks">
+                    </div> -->
+                <div class="flex items-center justify-center sm:justify-start gap-4 px-6" id="heroSocialLinks"></div>
+            </div>
+        </div>
+        
+        <div class="relative group">
+            <div class="absolute inset-0 bg-gradient-to-tr from-primary to-secondary rounded-2xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity"></div>
+            <img id="profileImage" src="" alt="Profile" class="relative w-64 h-64 lg:w-80 lg:h-80 object-cover rounded-2xl border-2 border-white/10 shadow-2xl z-10">
         </div>
     </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="experience">
-        <div class="container">
-            <h2 class="section-center">Professional Experience</h2>
-            <div class="timeline" id="experienceTimeline">
-                <!-- Experience items will be populated by JavaScript -->
-            </div>
+    <section class="border-y border-white/5 bg-white/5 backdrop-blur-sm relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div id="statsContainer" class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                </div>
         </div>
     </section>
 
-    <!-- Certifications Section -->
-    <section id="certifications" class="certifications">
-        <div class="container">
-            <h2 class="section-center">Certifications</h2>
-            <div class="cert-grid" id="certGrid">
-                <!-- Certifications will be populated by JavaScript -->
+    <section id="about" class="py-24 max-w-4xl mx-auto px-4 relative z-10">
+        <h2 class="section-title">About Me</h2>
+        <div class="glass-card p-8 rounded-2xl text-lg leading-relaxed text-slate-300" id="aboutText">
             </div>
+    </section>
+
+    <section id="skills" class="py-24 bg-slate-900/50 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="section-title text-center">Technical Arsenal</h2>
+            <div id="skillsGrid" class="flex flex-wrap justify-center gap-3 mt-12">
+                </div>
         </div>
     </section>
 
-    <!-- Education Section -->
-    <section id="education" class="education">
-        <div class="container">
-            <h2 class="section-center">Education</h2>
-            <div class="edu-grid" id="eduGrid">
-                <!-- Education items will be populated by JavaScript -->
+    <section id="experience" class="py-24 max-w-5xl mx-auto px-4 relative z-10">
+        <h2 class="section-title text-center mb-16">Professional Journey</h2>
+        <div class="relative border-l-2 border-slate-800 ml-4 md:ml-0 md:pl-0 space-y-12" id="experienceTimeline">
+            </div>
+    </section>
+
+    <section class="py-24 bg-slate-900/50 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12">
+            
+            <div id="education">
+                <h2 class="text-2xl font-bold text-white mb-8 flex items-center gap-3">
+                    <i class="fas fa-graduation-cap text-primary"></i> Education
+                </h2>
+                <div id="eduGrid" class="space-y-6">
+                    </div>
+            </div>
+
+            <div id="certifications">
+                <h2 class="text-2xl font-bold text-white mb-8 flex items-center gap-3">
+                    <i class="fas fa-award text-secondary"></i> Certifications
+                </h2>
+                <div id="certGrid" class="space-y-6">
+                    </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-center">Get In Touch</h2>
-            <form class="contact-form" method="post" action="" name="contact-form" id="contactForm">
-                <div class="form-group">
-                    <input type="text" name="Name" placeholder="Your Name*" required>
+    <section id="contact" class="py-24 max-w-3xl mx-auto px-4 relative z-10">
+        <div class="glass-card p-8 md:p-12 rounded-2xl border border-white/10">
+            <h2 class="text-3xl font-bold text-white mb-2 text-center">Get In Touch</h2>
+            <p class="text-center text-slate-400 mb-8">Have a project in mind or want to discuss DevOps?</p>
+            
+            <form id="contactForm" name="contact-form" class="space-y-6">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                        <label class="text-sm font-mono text-slate-400">Name</label>
+                        <input type="text" name="Name" required class="w-full bg-dark/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-sm font-mono text-slate-400">Email</label>
+                        <input type="email" name="Email" required class="w-full bg-dark/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all">
+                    </div>
                 </div>
-                <div class="form-group">
-                    <input type="email" name="Email" placeholder="Your Email*" required>
+                <div class="grid md:grid-cols-2 gap-6">
+                     <div class="space-y-2">
+                        <label class="text-sm font-mono text-slate-400">Mobile</label>
+                        <input type="tel" name="Mobile" class="w-full bg-dark/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-sm font-mono text-slate-400">Subject</label>
+                        <input type="text" name="Subject" required class="w-full bg-dark/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all">
+                    </div>
                 </div>
-                <div class="form-group">
-                    <input type="tel" name="Mobile" placeholder="Your Mobile Number">
+                <div class="space-y-2">
+                    <label class="text-sm font-mono text-slate-400">Message</label>
+                    <textarea name="Message" rows="4" required class="w-full bg-dark/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"></textarea>
                 </div>
-                <div class="form-group">
-                    <input type="text" name="Subject" placeholder="Subject*" required>
-                </div>
-                <div class="form-group">
-                    <textarea name="Message" placeholder="Your Message*" required></textarea>
-                </div>
-                <button type="submit" class="btn">Send Message</button>
+                <button type="submit" class="w-full bg-gradient-to-r from-primary to-secondary text-white font-bold py-4 rounded-lg hover:opacity-90 transition-opacity shadow-lg">
+                    Send Message <i class="fas fa-paper-plane ml-2"></i>
+                </button>
             </form>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container footer-content">
-            <div class="footer-logo" id="footerName">Ankit Kumar</div>
-            <div class="footer-links">
-                <a href="./Ankit_Kumar_DevOps_Engineer.pdf" target="_blank" rel="noopener noreferrer">Download Resume</a>
-                <a href="#about">About</a>
-                <a href="#skills">Skills</a>
-                <a href="#experience">Experience</a>
-                <a href="#certifications">Certifications</a>
-                <a href="#education">Education</a>
-                <a href="#contact">Contact</a>
+    <footer class="border-t border-white/5 py-12 text-center bg-dark relative z-10">
+        <div class="flex justify-center space-x-6 mb-6" id="footerSocialLinks">
             </div>
-            <div class="footer-social" id="footerSocialLinks">
-                <!-- Social links will be populated by JavaScript -->
-            </div>
-            <div class="copyright">
-                &copy; <span id="currentYear"></span> Ankit Kumar. All rights reserved.
-            </div>
-        </div>
+        <p class="text-slate-500 text-sm">
+            &copy; <span id="currentYear"></span> <span id="footerName"></span>. Engineered with <i class="fas fa-heart text-red-500"></i>
+        </p>
     </footer>
 
+    <div id="sendingOverlay" class="fixed inset-0 bg-dark/90 backdrop-blur-sm z-[9999] hidden flex-col items-center justify-center">
+        <div class="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin mb-4"></div>
+        <p class="text-white text-xl font-mono">Sending Transmission...</p>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
